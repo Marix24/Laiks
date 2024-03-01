@@ -1,24 +1,103 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>LAIKS</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>
-            TODO write content
-            <a href="lietotnes.html">Laika plānošanas lietotnes</a>
-            <h1>Laika plānošana</h1>
-            <p>If you spent an hour working on a client project, but no timer was around to track it, did you even do any work? (That's how that saying goes, right?)
-As a freelancer, I'm responsible for every aspect of my business, from client work to marketing to record-keeping and admin. I keep detailed records of how long every 
-business task and client
-project takes me, which helps me price my services accurately and avoid overbooking my schedule. But whether you're a solopreneur like me or a 9-5 office worker, knowing how you spend your
-time gives you crucial insight into—and control over—where you spend your energy. 
-            </p>
-            <table>
-                
-            </table>
-        </div>
-    </body>
-</html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<style>
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+#NewsText {display: none;}
+</style>
+</head>
+<body>
+
+<button class="tablink" onclick="openPage('Home', this, 'red')">Attēls</button>
+<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">News</button>
+<button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
+<button class="tablink" onclick="openPage('About', this, 'orange')">About</button>
+
+<div id="Home" class="tabcontent">
+    <img src="clock.png" alt="a clock" width="500" height="600">
+</div>
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <span id = "Pretext"> Some news this fine day! WASHINGTON — A new national organization called the Black Muslim Leadership<span/>
+  <p id = "NewsText">Some news this fine day! WASHINGTON — A new national organization called the Black Muslim Leadership Council is hoping to pressure elected officials, including President Joe Biden, to call for a permanent cease-fire in the Middle East. Details of the group were shared first with NBC News.
+But the organization is also making clear that many of its members are focused on U.S. domestic challenges and do not support abandoning the president at a time when a movement by another group of Muslims is pushing to do just that.
+Salima Suswell, founder and chief executive of the Black Muslim Leadership Council, said the group will be focused both on the thousands of civilians killed in Gaza during the war between Israel and Hamas, and on domestic issues such as mobilizing voters in swing states and pushing lawmakers to lay out policies to improve the lives of Black Muslims living across the United States.</p> 
+<span id = "Read more" onclick="MoreInfo()" style="color:blue"> Read More<span/>
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Contact</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+</div>
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+function MoreInfo() {
+    if (document.getElementById("NewsText").style.display === "none"){
+        document.getElementById("NewsText").style.display = "inline";
+        document.getElementById("ReadMore") = "Read Less";
+    }
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
