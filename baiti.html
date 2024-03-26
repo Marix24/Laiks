@@ -13,15 +13,18 @@
             <input type ='text' id = 'daudzums'><div>sekundēs, ja intreneta ātrums ir 25 Mbps</div><br>
             
             <label>Atbilde</label><br>
-            <input type ='text' id = 'atbilde'><input type='radio' id='select' value ='KiB' onclick = 'main();'><label>KiB</label><input type='radio' id='select' value ='KB' onclick = 'main();'><label>KB</label>
+            <input type ='text' id = 'atbilde'><input type='radio' id='kb' value ='KiB' onclick = 'main();'><label>KiB</label><input type='radio' id='kib' value ='KB' onclick = 'main();'><label>KB</label>
             <script>
                 let sek = 0;
                 function main (){
-                    if (document.getElementById("select").value = "KB") {
+                    if (document.getElementById("kb").checked == true) {
                     sek = document.getElementById("daudzums").value;
                     document.getElementById("atbilde").value = 25000*sek;
+                    document.getElementById("kb").checked == false;
                 }
-                else {document.getElementById("atbilde").value = 24425*sek;}
+                else if(document.getElementById("kib").checked == true) {document.getElementById("atbilde").value = 24425*sek;
+                document.getElementById("kib").checked == false;
+        }
                 }
                 
             </script>
