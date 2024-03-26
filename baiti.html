@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+-->
+<html>
+    <head>
+        <title>Kilobaitu kalkulators</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form>
+            <label>Aprēķināt, cik informacijas var lejuplādēt</label><br>
+            <input type ='text' id = 'daudzums'><div>sekundēs, ja intreneta ātrums ir 25 Mbps</div><br>
+            
+            <label>Atbilde</label><br>
+            <input type ='text' id = 'atbilde'><input type='radio' id='select' value ='KiB' onclick = 'main();'><label>KiB</label><input type='radio' id='select' value ='KB' onclick = 'main();'><label>KB</label>
+            <script>
+                let sek = 0;
+                function main (){
+                    if (document.getElementById("select").value = "KB") {
+                    sek = document.getElementById("daudzums").value;
+                    document.getElementById("atbilde").value = 25000*sek;
+                }
+                else {document.getElementById("atbilde").value = 24425*sek;}
+                }
+                
+            </script>
+        </form>
+    </body>
+</html>
